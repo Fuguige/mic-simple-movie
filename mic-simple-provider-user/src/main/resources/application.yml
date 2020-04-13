@@ -1,4 +1,3 @@
-
 #默认使用配置
 spring:
   profiles:
@@ -9,9 +8,22 @@ spring:
 mybatis:
   typeAliasesPackage: com.itmush.cloud.dao
   mapperLocations: classpath:mappers/*.xml
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+#logging:
+#  level:
+#    com.itmuch.cloud: debug
 
 server:
   port: 8000
+
+info:
+  app:
+    name: @project.artifactId@
+    encoding: @project.build.sourceEncoding@
+    java:
+      source: @java.version@
+      target: @java.version@
 ---
 #开发配置
 spring:
