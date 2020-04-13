@@ -1,0 +1,29 @@
+spring:
+  application:
+    name: microservice-discovery-eureka-ha
+---
+#指定profile=peer1
+spring:
+  profiles: peer1
+server:
+  port: 8761
+eureka:
+  client:
+    serverUrl:
+      #将自己注册到peer2 Eureka Server中
+      defaultZone: http://localhost:8762/eureka/  #设置与Eureka Server交互的地址,查询和注册都需要依赖这个地址,多个地址使用逗号分隔
+  instance:
+    hostname: peer1
+---
+#指定profile=peer2
+spring:
+  profiles: peer2
+server:
+  port: 8762
+eureka:
+  client:
+    serverUrl:
+      #将自己注册到peer1 Eureka Server中
+      defaultZone: http://localhost:8761/eureka/  #设置与Eureka Server交互的地址,查询和注册都需要依赖这个地址,多个地址使用逗号分隔
+  instance:
+    hostname: peer2
