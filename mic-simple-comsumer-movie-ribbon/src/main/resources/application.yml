@@ -1,0 +1,15 @@
+server:
+  port: 8010
+
+spring:
+  application:
+    name: microservice-consumer-movie
+
+#Eureka server info:
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://peer1:8761/eureka/,http://peer2:8762/eureka/
+#      defaultZone: http://user:123@peer1:8761/eureka/
+  instance:
+    prefer-ip-address: true         #将自己的ID注册到EurekaServer
