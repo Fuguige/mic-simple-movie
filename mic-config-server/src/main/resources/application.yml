@@ -1,0 +1,14 @@
+server:
+  prot: 8080
+
+spring:
+  application:
+    name: mic-config-server
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/Fuguige/demo-spring-cloud-config-repo.git
+          username:
+          password:
+
